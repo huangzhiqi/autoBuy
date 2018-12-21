@@ -1,0 +1,14 @@
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\x86\Debug\WindowsFormsApp1.exe.config
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\x86\Debug\WindowsFormsApp1.exe
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\x86\Debug\WindowsFormsApp1.pdb
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\x86\Debug\AutoBuy.Form1.resources
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\x86\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\x86\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\x86\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\x86\Debug\WindowsFormsApp1.exe
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\x86\Debug\WindowsFormsApp1.pdb
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\x86\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\x86\Debug\AutoBuy.MsgShowForm.resources
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\x86\Debug\Newtonsoft.Json.dll
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\x86\Debug\Newtonsoft.Json.pdb
+D:\MyConfiguration\hzq06148\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\x86\Debug\Newtonsoft.Json.xml
