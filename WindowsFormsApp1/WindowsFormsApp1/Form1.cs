@@ -12,6 +12,7 @@ namespace AutoBuy
 {
     using Newtonsoft.Json;
     using System.Resources;
+    using System.Speech.Synthesis;
     using System.Text.RegularExpressions;
     using System.Threading;
     using WindowsFormsApp1;
@@ -34,6 +35,12 @@ namespace AutoBuy
 
         string msg = "";
 
+        string content = "";
+        SpeechSynthesizer Speech = new SpeechSynthesizer();
+
+        //梅西 https://www.macys.com/xapi/discover/v1/product?productIds=6893781&_deviceType=DESKTOP&_shoppingMode=SITE&_regionCode=US&currencyCode=USD&_customerState=GUEST&clientId=RVI
+        //雅诗兰黛 https://m.esteelauder.com/rpc/jsonrpc.tmpl?JSONRPC=[{"method":"prodcat.querykey","params":[{"products":["PROD25671"],"query_key":"catalog-mpp-volatile"}],"id":1}]
+        //sephora https://www.sephora.com/api/users/profiles/current/full?&productId=P417172
         public Form1()
         {
             InitializeComponent();
@@ -93,124 +100,15 @@ namespace AutoBuy
                     //    }
                     //}
                     //#endregion
-                    #region 雅诗兰黛
-                    if (!string.IsNullOrEmpty(url1))
-                    {
-                        pageResult = HttpUtils.HttpGet(url1, "");
-                        if (pageResult.Contains("\"isShoppable\":1"))
-                        {
-                            msg = now + " 雅诗兰黛1有货";
-                            textBox1.Text = msg + textBox1.Text;
-                            threadPro();
-                        }
-                    }
-                    #endregion
-                    #region 德亚爱3
-                    if (!string.IsNullOrEmpty(url2))
-                    {
-                        pageResult = HttpUtils.HttpGet(url2, "");
-                        if (pageResult.Contains("InStock"))
-                        {
-                            msg = now + " dm白2有货";
-                            textBox1.Text = msg + textBox1.Text;
-                            threadPro();
-                        }
-                    }
-                    #endregion
-                    #region dm Pre
-                    //if (!string.IsNullOrEmpty(url3))
-                    //{
-                    //    pageResult = HttpUtils.HttpGet(url3, "");
-                    //    if (pageResult.Contains("InStock"))
-                    //    {
-                    //        msg = now + " dmPre有货";
-                    //        textBox1.Text = msg + textBox1.Text;
-                    //        threadPro();
-                    //    }
-                    //}
-                    #endregion
-                    #region 雅诗兰黛
-                    if (!string.IsNullOrEmpty(url3))
-                    {
-                        pageResult = HttpUtils.HttpGet(url3, "");
-                        if (pageResult.Contains("\"isShoppable\":1"))
-                        {
-                            msg = now + " 雅诗兰黛三件套有货";
-                            textBox1.Text = msg + textBox1.Text;
-                            threadPro();
-                        }
-                    }
-                    #endregion
-                    #region 雅诗兰黛3
-                    if (!string.IsNullOrEmpty(url4))
-                    {
-                        pageResult = HttpUtils.HttpGet(url3, "");
-                        if (pageResult.Contains("\"isShoppable\":1"))
-                        {
-                            msg = now + " 雅诗兰黛昼夜有货";
-                            textBox1.Text = msg + textBox1.Text;
-                            threadPro();
-                        }
-                    }
-                    #endregion
-                    #region 梅西
-                    if (!string.IsNullOrEmpty(url2))
-                    {
-                        pageResult = HttpUtils.HttpGet(url2, "");
-                        if (!string.IsNullOrEmpty(pageResult))
-                        {
-                            dynamic json = JsonConvert.DeserializeObject<dynamic>(pageResult);
-                            if (json[0].product.availability.available == true)
-                            {
-                                msg = now + " macys有货";
-                                textBox1.Text = msg + textBox1.Text;
-                                threadPro();
-                            }
-                        }
-                    }
-                    #endregion
-                    #region 德亚hipp
-                    //if (!string.IsNullOrEmpty(url3))
-                    //{
-                    //    pageResult = HttpUtils.HttpGet(url3, "");
-                    //    reg = new Regex("<span class='a-color-price'>￥ (.+)</span>");
-                    //    if (string.IsNullOrEmpty(pageResult))
-                    //    {
-                    //        continue;
-                    //    }
-                    //    match = reg.Match(pageResult);
-                    //    result = match.Groups[1].Value;
-                    //    price = Convert.ToDouble(result);
-                    //    if (price <= 973)
-                    //    {
-                    //        msg = now + "价格:" + result;
-                    //        textBox1.Text = now + "价格:" + result + "\r\n" + textBox1.Text;
-                    //        threadPro();
-                    //    }
-                    //}
-                    #endregion
-                    #region rossmann
-                    //pageResult = HttpUtils.HttpGet(url3, "");
-                    //if (pageResult.Contains("c-product-buy"))
-                    //{
-                    //    msg = now + "rossmann有货";
-                    //    textBox1.Text = now + "rossmann有货" + "\r\n" + textBox1.Text;
-                    //    threadPro();
-                    //}
-                    #endregion
-                    #region dm
-                    //pageResult = HttpUtils.HttpGet(this.urlDm, "");
-                    //if (string.IsNullOrEmpty(pageResult))
-                    //{
-                    //    continue;
-                    //}
-                    //if (pageResult.Contains(IsHaveString))
-                    //{
-                    //    textBox1.Text = now + "dm有货" + "\r\n" + textBox1.Text;
-                    //    MessageBox.Show(now + "dm有情况赶紧看！");
 
-                    //}
-                    #endregion
+                    getSEPHResult(url1, "明星套");
+                    getAmazonResult(url2, "欧莱雅晚日霜");
+                    getYSLDResult(url3, "红石榴三件套");
+                    getYSLDResult(url4, "晚日霜套装");
+
+
+
+
                     #region 雅诗兰黛兑换
                     //if (!string.IsNullOrEmpty(url4))
                     //{
@@ -236,6 +134,116 @@ namespace AutoBuy
                 }
             }
 
+        }
+        /// <summary>
+        /// 获取雅诗兰黛结果
+        /// </summary>
+        /// <param name="url">接口地址</param>
+        /// <param name="remark">备注内容</param>
+        public void getYSLDResult(string url, string remark)
+        {
+            if (!string.IsNullOrEmpty(url))
+            {
+                DateTime now = DateTime.Now;
+                string pageResult = HttpUtils.HttpGet(url, "");
+                if (pageResult.Contains("\"isShoppable\":1"))
+                {
+                    string content = "雅诗兰黛" + remark + "有货";
+                    string msg = now + content + "\r\n";
+                    textBox1.Text = msg + textBox1.Text;
+                    threadPro(msg, content);
+
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取梅西结果
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="remark"></param>
+        public void getMXResult(string url, string remark)
+        {
+            DateTime now = DateTime.Now;
+            string pageResult = HttpUtils.HttpGet(url, "");
+            if (!string.IsNullOrEmpty(pageResult))
+            {
+                dynamic json = JsonConvert.DeserializeObject<dynamic>(pageResult);
+                if (json[0].product.availability.available == true)
+                {
+                    string content = "macys" + remark + " 有货";
+                    string msg = now + content + "\r\n";
+                    textBox1.Text = msg + textBox1.Text;
+                    threadPro(msg, content);
+
+
+                }
+            }
+
+        }
+
+        public void getDMResult(string url, string remark)
+        {
+            DateTime now = DateTime.Now;
+            string pageResult = HttpUtils.HttpGet(url, "");
+            if (!string.IsNullOrEmpty(url))
+            {
+                pageResult = HttpUtils.HttpGet(url, "");
+                if (pageResult.Contains("InStock"))
+                {
+                    string content = " dm" + remark + "有货";
+                    string msg = now + content + "\r\n";
+                    textBox1.Text = msg + textBox1.Text;
+                    threadPro(msg, content);
+
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取sephora结果
+        /// </summary>
+        /// <param name="url">接口地址</param>
+        /// <param name="remark">备注内容</param>
+        public void getSEPHResult(string url, string remark)
+        {
+            if (!string.IsNullOrEmpty(url))
+            {
+                DateTime now = DateTime.Now;
+                string pageResult = HttpUtils.HttpGet(url, "");
+                if (pageResult.Contains("\"isAddToBasket\":true"))
+                {
+                    string content = "丝芙兰" + remark + "有货";
+                    string msg = now + content + "\r\n";
+                    textBox1.Text = msg + textBox1.Text;
+                    threadPro(msg, content);
+
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取亚马逊结果
+        /// </summary>
+        /// <param name="url">接口地址</param>
+        /// <param name="remark">备注内容</param>
+        public void getAmazonResult(string url, string remark)
+        {
+            if (!string.IsNullOrEmpty(url))
+            {
+                DateTime now = DateTime.Now;
+                string pageResult = HttpUtils.HttpGet(url, "");
+                if (!pageResult.Contains("目前无货"))
+                {
+                    string content = " 亚马逊" + remark + "有货";
+                    string msg = now + content + "\r\n";
+                    textBox1.Text = msg + textBox1.Text;
+                    threadPro(msg, content);
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -266,20 +274,24 @@ namespace AutoBuy
         private void button3_Click(object sender, EventArgs e)
         {
             //NetLog.WriteTextLog("test", "啊哈啊哈哈哈", DateTime.Now);
-            test.main();
+            SpeechSynthesizer hello = new SpeechSynthesizer();
+            string str = "雅诗兰黛石榴套有货";
+            hello.Speak(str);  //Speak(string),Speak加上字符串类型的参数
         }
 
 
-        public void threadPro()
+        public void threadPro(string msg, string content)
         {
-            MethodInvoker MethInvo = new MethodInvoker(ShowForm2);
-            BeginInvoke(MethInvo);
+            Invoke(DCT, msg, content);
         }
-        public void ShowForm2()
+        public static void ShowForm2(string msg, string content)
         {
-            MsgShowForm f2 = new MsgShowForm(msg);
+            MsgShowForm f2 = new MsgShowForm(msg, content);
             f2.Show();
         }
+
+        private delegate void dlgCrossThread(string msg, string content);
+        private dlgCrossThread DCT = new dlgCrossThread(ShowForm2);
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -291,10 +303,7 @@ namespace AutoBuy
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (textBox4.Text != "")
-            {
-                Clipboard.SetDataObject(textBox4.Text);
-            }
         }
+
     }
 }

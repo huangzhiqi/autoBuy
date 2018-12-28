@@ -83,9 +83,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(436, 59);
             this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "https://m.esteelauder.com/rpc/jsonrpc.tmpl?JSONRPC=[{\"method\":\"prodcat.querykey\"," +
-    "\"params\":[{\"products\":[\"PROD25671\"],\"query_key\":\"catalog-mpp-volatile\"}],\"id\":1}" +
-    "]";
+            this.textBox2.Text = "https://www.sephora.com/api/users/profiles/current/full?&productId=P436328";
             // 
             // textBox3
             // 
@@ -94,9 +92,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(438, 50);
             this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "https://www.macys.com/xapi/discover/v1/product?productIds=6893781&_deviceType=DES" +
-    "KTOP&_shoppingMode=SITE&_regionCode=US&currencyCode=USD&_customerState=GUEST&cli" +
-    "entId=RVI";
+            this.textBox3.Text = "https://www.amazon.cn/dp/B07CHLHPLQ?tag=bacaoo0b-23";
             // 
             // button1
             // 
