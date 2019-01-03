@@ -83,7 +83,8 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(436, 59);
             this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "https://www.sephora.com/api/users/profiles/current/full?&productId=P436328";
+            this.textBox2.Text = "https://shop.nordstrom.com/s/estee-lauder-nutritious-2-in-1-foam-cleanser/5179951" +
+    "";
             // 
             // textBox3
             // 
@@ -92,7 +93,8 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(438, 50);
             this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "https://www.amazon.cn/dp/B07CHLHPLQ?tag=bacaoo0b-23";
+            this.textBox3.Text = "https://shop.nordstrom.com/s/kiehls-since-1851-brighten-up-glow-set-125-value/510" +
+    "3863";
             // 
             // button1
             // 
@@ -197,9 +199,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(438, 50);
             this.textBox5.TabIndex = 4;
-            this.textBox5.Text = "https://m.esteelauder.com/rpc/jsonrpc.tmpl?JSONRPC=[{\"method\":\"prodcat.querykey\"," +
-    "\"params\":[{\"products\":[\"PROD62171\"],\"query_key\":\"catalog-mpp-volatile\"}],\"id\":1}" +
-    "]";
+            this.textBox5.Text = "https://www.sephora.com/api/users/profiles/current/full?&productId=P440460";
             // 
             // button7
             // 

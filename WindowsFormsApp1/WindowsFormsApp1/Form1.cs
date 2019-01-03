@@ -41,6 +41,7 @@ namespace AutoBuy
         //梅西 https://www.macys.com/xapi/discover/v1/product?productIds=6893781&_deviceType=DESKTOP&_shoppingMode=SITE&_regionCode=US&currencyCode=USD&_customerState=GUEST&clientId=RVI
         //雅诗兰黛 https://m.esteelauder.com/rpc/jsonrpc.tmpl?JSONRPC=[{"method":"prodcat.querykey","params":[{"products":["PROD25671"],"query_key":"catalog-mpp-volatile"}],"id":1}]
         //sephora https://www.sephora.com/api/users/profiles/current/full?&productId=P417172
+        //nd https://shop.nordstrom.com/s/estee-lauder-nutritious-2-in-1-foam-cleanser/5179951
         public Form1()
         {
             InitializeComponent();
@@ -101,10 +102,10 @@ namespace AutoBuy
                     //}
                     //#endregion
 
-                    getSEPHResult(url1, "明星套");
-                    getAmazonResult(url2, "欧莱雅晚日霜");
+                    getNordStormResult(url1, "洗面奶");
+                    getNordStormResult(url2, "科颜氏套装");
                     getYSLDResult(url3, "红石榴三件套");
-                    getYSLDResult(url4, "晚日霜套装");
+                    getSEPHResult(url4, "法拉利");
 
 
 
@@ -236,12 +237,39 @@ namespace AutoBuy
             {
                 DateTime now = DateTime.Now;
                 string pageResult = HttpUtils.HttpGet(url, "");
-                if (!pageResult.Contains("目前无货"))
+                if (!string.IsNullOrEmpty(pageResult))
                 {
-                    string content = " 亚马逊" + remark + "有货";
-                    string msg = now + content + "\r\n";
-                    textBox1.Text = msg + textBox1.Text;
-                    threadPro(msg, content);
+                    if (!pageResult.Contains("目前无货"))
+                    {
+                        string content = " 亚马逊" + remark + "有货";
+                        string msg = now + content + "\r\n";
+                        textBox1.Text = msg + textBox1.Text;
+                        threadPro(msg, content);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取ND结果
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="remark"></param>
+        public void getNordStormResult(string url, string remark)
+        {
+            if (!string.IsNullOrEmpty(url))
+            {
+                DateTime now = DateTime.Now;
+                string pageResult = HttpUtils.HttpGet(url, "");
+                if (!string.IsNullOrEmpty(pageResult))
+                {
+                    if (!pageResult.Contains("SOLD OUT"))
+                    {
+                        string content = " ND" + remark + "有货";
+                        string msg = now + content + "\r\n";
+                        textBox1.Text = msg + textBox1.Text;
+                        threadPro(msg, content);
+                    }
                 }
             }
         }
