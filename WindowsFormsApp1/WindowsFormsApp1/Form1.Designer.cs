@@ -39,14 +39,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -55,7 +55,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(243, 382);
+            this.textBox1.Size = new System.Drawing.Size(243, 641);
             this.textBox1.TabIndex = 0;
             // 
             // label1
@@ -93,12 +93,12 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(438, 50);
             this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "https://shop.nordstrom.com/s/kiehls-since-1851-brighten-up-glow-set-125-value/510" +
-    "3863";
+            this.textBox3.Text = "https://shop.nordstrom.com/s/lancome-tonique-confort-home-away-set-nordstrom-excl" +
+    "usive-60-65-value/4798005";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(533, 441);
+            this.button1.Location = new System.Drawing.Point(537, 618);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -108,7 +108,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(614, 441);
+            this.button2.Location = new System.Drawing.Point(618, 618);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 6;
@@ -125,33 +125,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(328, 441);
+            this.button3.Location = new System.Drawing.Point(332, 618);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 7;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(612, 90);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "复制";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(612, 176);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "复制";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label3
             // 
@@ -169,19 +149,9 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(438, 50);
             this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "https://m.esteelauder.com/rpc/jsonrpc.tmpl?JSONRPC=[{\"method\":\"prodcat.querykey\"," +
-    "\"params\":[{\"products\":[\"PROD63033\"],\"query_key\":\"catalog-mpp-volatile\"}],\"id\":1}" +
-    "]\r\n";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(612, 284);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "复制";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button5_Click);
+            this.textBox4.Text = "https://www.macys.com/xapi/discover/v1/product?productIds=6943822&_deviceType=DES" +
+    "KTOP&_shoppingMode=SITE&_regionCode=US&currencyCode=USD&_customerState=GUEST&cli" +
+    "entId=RVI";
             // 
             // label4
             // 
@@ -201,29 +171,57 @@
             this.textBox5.TabIndex = 4;
             this.textBox5.Text = "https://www.sephora.com/api/users/profiles/current/full?&productId=P440460";
             // 
-            // button7
+            // label5
             // 
-            this.button7.Location = new System.Drawing.Point(610, 388);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "复制";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button5_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(251, 421);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "URL5";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(251, 436);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(438, 50);
+            this.textBox6.TabIndex = 4;
+            this.textBox6.Text = "https://shop.nordstrom.com/s/yves-saint-laurent-rouge-pur-couture-the-slim-matte-" +
+    "lipstick/5084023";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(251, 505);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "URL6";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(251, 520);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(438, 50);
+            this.textBox7.TabIndex = 4;
+            this.textBox7.Text = "https://shop.nordstrom.com/s/kiehls-since-1851-brighten-up-glow-set-125-value/510" +
+    "3863";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 476);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.ClientSize = new System.Drawing.Size(707, 653);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
@@ -254,14 +252,14 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }
 

@@ -33,6 +33,10 @@ namespace AutoBuy
 
         string url4 = "";
 
+        string url5 = "";
+
+        string url6 = "";
+
         string msg = "";
 
         string content = "";
@@ -40,8 +44,10 @@ namespace AutoBuy
 
         //梅西 https://www.macys.com/xapi/discover/v1/product?productIds=6893781&_deviceType=DESKTOP&_shoppingMode=SITE&_regionCode=US&currencyCode=USD&_customerState=GUEST&clientId=RVI
         //雅诗兰黛 https://m.esteelauder.com/rpc/jsonrpc.tmpl?JSONRPC=[{"method":"prodcat.querykey","params":[{"products":["PROD25671"],"query_key":"catalog-mpp-volatile"}],"id":1}]
+        //雅诗兰黛兑换 https://m.esteelauder.com/rpc/jsonrpc.tmpl?JSONRPC=[{"method":"offers.query","params":[{"format_for":"mustache","view":"loyalty_gwp_offers"}],"id":1}]
         //sephora https://www.sephora.com/api/users/profiles/current/full?&productId=P417172
         //nd https://shop.nordstrom.com/s/estee-lauder-nutritious-2-in-1-foam-cleanser/5179951
+        //dm https://services.dm.de/product/de/products/gtins/4056631001349?view=details
         public Form1()
         {
             InitializeComponent();
@@ -58,6 +64,9 @@ namespace AutoBuy
             this.url2 = this.textBox3.Text;
             this.url3 = this.textBox4.Text;
             this.url4 = this.textBox5.Text;
+            this.url5 = this.textBox6.Text;
+            this.url6 = this.textBox7.Text;
+
         }
 
         private void GetResult()
@@ -103,10 +112,16 @@ namespace AutoBuy
                     //#endregion
 
                     getNordStormResult(url1, "洗面奶");
-                    getNordStormResult(url2, "科颜氏套装");
-                    getYSLDResult(url3, "红石榴三件套");
-                    getSEPHResult(url4, "法拉利");
+                    //getNordStormResult(url2, "科颜氏套装");
+                    //getYSLDResult(url2, "三件套");
+                    getNordStormResult(url2, "粉水");
 
+                    getMXResult(url3, "科颜氏");
+                    //getYSLDResult(url3, "红石榴三件套");
+                    getSEPHResult(url4, "法拉利");
+                    getNordStormLipStickResult(url5, "口红21色");
+                    //getNordStormResult(url6, "粉水");
+                    getNordStormResult(url6, "科颜氏套装");
 
 
 
@@ -274,6 +289,51 @@ namespace AutoBuy
             }
         }
 
+        /// <summary>
+        /// 获取ND结果
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="remark"></param>
+        public void getNordStormLipStickResult(string url, string remark)
+        {
+            if (!string.IsNullOrEmpty(url))
+            {
+                DateTime now = DateTime.Now;
+                string pageResult = HttpUtils.HttpGet(url, "");
+                if (!string.IsNullOrEmpty(pageResult))
+                {
+                    if (pageResult.Contains("21 ROUGE PARADOXE") || pageResult.Contains("21 Rouge Paradoxe"))
+                    {
+                        string content = " ND" + remark + "有货";
+                        string msg = now + content + "\r\n";
+                        textBox1.Text = msg + textBox1.Text;
+                        threadPro(msg, content);
+                    }
+                }
+            }
+        }
+
+        public void getYSLDGiftResult(string url)
+        {
+            if (!string.IsNullOrEmpty(url))
+            {
+                DateTime now = DateTime.Now;
+                string pageResult = HttpUtils.HttpGet(url, "");
+
+                if (!string.IsNullOrEmpty(pageResult))
+                {
+                    dynamic json = JsonConvert.DeserializeObject<dynamic>(pageResult);
+                    if (json[0].result.value.offers[1].benefit_fields.ChoiceOfSkus.choicesPcatData.Count > 4)
+                    {
+                        string content = "雅诗兰黛兑换有货";
+                        msg = now + content + "\r\n";
+                        textBox1.Text = msg + textBox1.Text;
+                        threadPro(msg, content);
+                    }
+                }
+            }
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             IsBegin = false;
@@ -327,10 +387,6 @@ namespace AutoBuy
             {
                 Clipboard.SetDataObject(textBox2.Text);
             }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
         }
 
     }
