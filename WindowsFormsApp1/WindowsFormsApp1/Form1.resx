@@ -551,4 +551,7 @@
         APgfAAD8PwAA/n8AAP//AAA=
 </value>
   </data>
+  <data name="textBox6.Text" xml:space="preserve">
+    <value>https://m.clinique.com/rpc/jsonrpc.tmpl?JSONRPC=[%20{%20%22method%22:%20%22offers.query%22,%20%22params%22:%20[%20{%20%22format_for%22:%20%22mustache%22,%20%22view%22:%20%22loyalty_offers%22%20}%20],%20%22id%22:%204%20}%20]</value>
+  </data>
 </root>

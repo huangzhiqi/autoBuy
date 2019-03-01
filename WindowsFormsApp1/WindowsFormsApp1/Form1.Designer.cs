@@ -185,6 +185,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(438, 50);
             this.textBox6.TabIndex = 4;
+            this.textBox6.Text = resources.GetString("textBox6.Text");
             // 
             // label6
             // 

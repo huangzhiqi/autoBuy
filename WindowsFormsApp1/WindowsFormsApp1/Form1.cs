@@ -110,13 +110,13 @@ namespace AutoBuy
                     //    }
                     //}
                     //#endregion
-                    getSEPHLipResult(url1, "YSL85号",21);
+                    getSEPHLipResult(url1, "YSL85号", 21);
                     getSEPHLipResult(url2, "YSL80号", 27);
 
                     //getNordStormResult(url2, "科颜氏套装");
                     //getYSLDResult(url2, "三件套");
                     getMXResult(url3, "科颜氏");
-                    getSEPHLipResult(url4, "兰蔻274号",13);
+                    getSEPHLipResult(url4, "兰蔻274号", 13);
 
                     //getYSLDResult(url3, "红石榴三件套");    
                     //getSEPHResult(url4, "法拉利");
@@ -139,6 +139,23 @@ namespace AutoBuy
                     //        }
                     //    }
                     //}
+                    #endregion
+                    #region 倩碧兑换
+                    if (!string.IsNullOrEmpty(url5))
+                    {
+                        pageResult = HttpUtils.HttpGet(url5, "");
+
+                        if (!string.IsNullOrEmpty(pageResult))
+                        {
+                            dynamic json = JsonConvert.DeserializeObject<dynamic>(pageResult);
+                            if (JsonConvert.SerializeObject(json[0].result.value.offers[0].benefit_fields.ChoiceOfSkus.choicesPcatData).Contains("Different"))
+                            {
+                                msg = now + " 倩碧兑换有货";
+                                textBox1.Text = msg + textBox1.Text;
+                                threadPro(msg, content);
+                            }
+                        }
+                    }
                     #endregion
                     Thread.Sleep(60000);
                 }
@@ -244,7 +261,7 @@ namespace AutoBuy
         /// </summary>
         /// <param name="url">接口地址</param>
         /// <param name="remark">备注内容</param>
-        public void getSEPHLipResult(string url, string remark,int index)
+        public void getSEPHLipResult(string url, string remark, int index)
         {
             if (!string.IsNullOrEmpty(url))
             {
