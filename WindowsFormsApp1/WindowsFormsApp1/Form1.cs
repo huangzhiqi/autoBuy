@@ -110,19 +110,17 @@ namespace AutoBuy
                     //    }
                     //}
                     //#endregion
+                    getSEPHLipResult(url1, "YSL85号",21);
+                    getSEPHLipResult(url2, "YSL80号", 27);
 
-                    getNordStormResult(url1, "洗面奶");
                     //getNordStormResult(url2, "科颜氏套装");
                     //getYSLDResult(url2, "三件套");
-                    getNordStormResult(url2, "粉水");
-
                     getMXResult(url3, "科颜氏");
-                    //getYSLDResult(url3, "红石榴三件套");
-                    getSEPHResult(url4, "法拉利");
-                    getNordStormLipStickResult(url5, "口红21色");
-                    //getNordStormResult(url6, "粉水");
-                    getNordStormResult(url6, "科颜氏套装");
+                    getSEPHLipResult(url4, "兰蔻274号",13);
 
+                    //getYSLDResult(url3, "红石榴三件套");    
+                    //getSEPHResult(url4, "法拉利");
+                    //getNordStormResult(url6, "粉水");
 
 
                     #region 雅诗兰黛兑换
@@ -237,6 +235,31 @@ namespace AutoBuy
                     threadPro(msg, content);
 
 
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取sephora结果
+        /// </summary>
+        /// <param name="url">接口地址</param>
+        /// <param name="remark">备注内容</param>
+        public void getSEPHLipResult(string url, string remark,int index)
+        {
+            if (!string.IsNullOrEmpty(url))
+            {
+                DateTime now = DateTime.Now;
+                string pageResult = HttpUtils.HttpGet(url, "");
+                if (pageResult.Contains("\"isAddToBasket\":true"))
+                {
+                    dynamic json = JsonConvert.DeserializeObject<dynamic>(pageResult);
+                    if (json.product.regularChildSkus[index].actionFlags.isAddToBasket == true)
+                    {
+                        string content = "丝芙兰" + remark + "有货";
+                        string msg = now + content + "\r\n";
+                        textBox1.Text = msg + textBox1.Text;
+                        threadPro(msg, content);
+                    }
                 }
             }
         }

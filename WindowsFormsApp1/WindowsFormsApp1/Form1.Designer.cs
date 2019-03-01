@@ -83,8 +83,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(436, 59);
             this.textBox2.TabIndex = 3;
-            this.textBox2.Text = "https://shop.nordstrom.com/s/estee-lauder-nutritious-2-in-1-foam-cleanser/5179951" +
-    "";
+            this.textBox2.Text = "https://www.sephora.com/api/users/profiles/current/full?&productId=P377710";
             // 
             // textBox3
             // 
@@ -93,8 +92,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(438, 50);
             this.textBox3.TabIndex = 4;
-            this.textBox3.Text = "https://shop.nordstrom.com/s/lancome-tonique-confort-home-away-set-nordstrom-excl" +
-    "usive-60-65-value/4798005";
+            this.textBox3.Text = "https://www.sephora.com/api/users/profiles/current/full?&productId=P377710";
             // 
             // button1
             // 
@@ -169,7 +167,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(438, 50);
             this.textBox5.TabIndex = 4;
-            this.textBox5.Text = "https://www.sephora.com/api/users/profiles/current/full?&productId=P440460";
+            this.textBox5.Text = "https://www.sephora.com/api/users/profiles/current/full?&productId=P431511";
             // 
             // label5
             // 
@@ -187,8 +185,6 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(438, 50);
             this.textBox6.TabIndex = 4;
-            this.textBox6.Text = "https://shop.nordstrom.com/s/yves-saint-laurent-rouge-pur-couture-the-slim-matte-" +
-    "lipstick/5084023";
             // 
             // label6
             // 
@@ -206,8 +202,6 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(438, 50);
             this.textBox7.TabIndex = 4;
-            this.textBox7.Text = "https://shop.nordstrom.com/s/kiehls-since-1851-brighten-up-glow-set-125-value/510" +
-    "3863";
             // 
             // Form1
             // 
