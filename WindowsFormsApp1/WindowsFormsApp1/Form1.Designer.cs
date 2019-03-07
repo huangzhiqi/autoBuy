@@ -147,9 +147,8 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(438, 50);
             this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "https://www.macys.com/xapi/discover/v1/product?productIds=6943822&_deviceType=DES" +
-    "KTOP&_shoppingMode=SITE&_regionCode=US&currencyCode=USD&_customerState=GUEST&cli" +
-    "entId=RVI";
+            this.textBox4.Text = "https://shop.nordstrom.com/s/estee-lauder-nutritious-2-in-1-foam-cleanser/3475559" +
+    "";
             // 
             // label4
             // 
@@ -167,7 +166,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(438, 50);
             this.textBox5.TabIndex = 4;
-            this.textBox5.Text = "https://www.sephora.com/api/users/profiles/current/full?&productId=P431511";
+            this.textBox5.Text = "https://www.sephora.com/api/users/profiles/current/full?&productId=P393411";
             // 
             // label5
             // 
@@ -203,6 +202,8 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(438, 50);
             this.textBox7.TabIndex = 4;
+            this.textBox7.Text = "https://shop.nordstrom.com/s/estee-lauder-nutritious-2-in-1-foam-cleanser/5179951" +
+    "";
             // 
             // Form1
             // 
@@ -230,6 +231,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();

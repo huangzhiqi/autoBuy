@@ -41,7 +41,7 @@ namespace AutoBuy
 
         string content = "";
         SpeechSynthesizer Speech = new SpeechSynthesizer();
-
+        Thread t;
         //梅西 https://www.macys.com/xapi/discover/v1/product?productIds=6893781&_deviceType=DESKTOP&_shoppingMode=SITE&_regionCode=US&currencyCode=USD&_customerState=GUEST&clientId=RVI
         //雅诗兰黛 https://m.esteelauder.com/rpc/jsonrpc.tmpl?JSONRPC=[{"method":"prodcat.querykey","params":[{"products":["PROD25671"],"query_key":"catalog-mpp-volatile"}],"id":1}]
         //雅诗兰黛兑换 https://m.esteelauder.com/rpc/jsonrpc.tmpl?JSONRPC=[{"method":"offers.query","params":[{"format_for":"mustache","view":"loyalty_gwp_offers"}],"id":1}]
@@ -52,7 +52,7 @@ namespace AutoBuy
         {
             InitializeComponent();
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
-            Thread t = new Thread(GetResult);
+            t = new Thread(GetResult);
             t.Start();
         }
 
@@ -115,12 +115,12 @@ namespace AutoBuy
 
                     //getNordStormResult(url2, "科颜氏套装");
                     //getYSLDResult(url2, "三件套");
-                    getMXResult(url3, "科颜氏");
-                    getSEPHLipResult(url4, "兰蔻274号", 13);
+                    getNordStormResult(url3, "新洗面奶");
+                    getSEPHLipResult(url4, "阿玛尼405", 0);
 
                     //getYSLDResult(url3, "红石榴三件套");    
                     //getSEPHResult(url4, "法拉利");
-                    //getNordStormResult(url6, "粉水");
+                    getNordStormResult(url6, "老洗面奶");
 
 
                     #region 雅诗兰黛兑换
@@ -429,5 +429,9 @@ namespace AutoBuy
             }
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Abort();
+        }
     }
 }
